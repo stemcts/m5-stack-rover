@@ -1,0 +1,103 @@
+{
+  "version": "V2.0",
+  "versionNumber": "V2.4.2",
+  "type": "stickc-plus2",
+  "components": [
+    {
+      "name": "screen",
+      "type": "screen",
+      "layer": 0,
+      "screenId": "builtin",
+      "screenName": "",
+      "id": "__stickc-plus2_screen",
+      "createTime": 1769964759052,
+      "x": 0,
+      "y": 0,
+      "width": 135,
+      "height": 240,
+      "backgroundColor": "#ffffff",
+      "size": 0,
+      "isSelected": true
+    },
+    {
+      "name": "image0",
+      "type": "image",
+      "layer": 1,
+      "screenId": "builtin",
+      "screenName": "",
+      "id": "uU4^$t^SzZNbEJXo",
+      "createTime": 1770623091391,
+      "x": 20,
+      "y": 10,
+      "imagePath": "Coretech Centred logo RGB.png",
+      "visibility": true,
+      "scaleX": 0.2,
+      "scaleY": 0.2,
+      "isSelected": false
+    }
+  ],
+  "resources": [
+    {
+      "hardware": [
+        "hardware_button",
+        "hardware_pin_button",
+        "imu",
+        "speaker",
+        "ir",
+        "i2c"
+      ]
+    },
+    {
+      "hat": [
+        "hat_joyc"
+      ]
+    }
+  ],
+  "units": [],
+  "hats": [
+    {
+      "type": "hat_joyc",
+      "name": "hat_joyc_0",
+      "id": "s!q7ja^wjjwmlopi",
+      "createTime": 1770622693088,
+      "bus": "i2c0",
+      "busList": [],
+      "initBlockType": "hat_joyc_init",
+      "initBlockId": "IKuSw?L%D=e[o_-J#_o?"
+    }
+  ],
+  "caps": [],
+  "chains": [],
+  "bases": [],
+  "plcmodules": [],
+  "i2cs": [
+    {
+      "id": "i2c0",
+      "portType": "HAT",
+      "userPort": [
+        22,
+        21
+      ],
+      "freq": "100000"
+    }
+  ],
+  "chainBus": [],
+  "blockly": "<variables><variable id=\"D=KR_ggv0mu-b1sniv!K\">controls</variable><variable id=\"fSkDGsT_n~FcI=(rTm%M\">my_ip</variable><variable id=\"y@c*dgf.pn+tMe5wkY|6\">count</variable><variable id=\"49+FBR=Gs,VrCO1c(?R8\">payload</variable></variables><block type=\"basic_on_setup\" id=\"setup_block\" deletable=\"false\" x=\"-70\" y=\"-70\"><mutation isBegin=\"true\"></mutation><field name=\"UPDATEOP\">true</field><statement name=\"FUNC\"><block type=\"system_m5_begin\" id=\"{r@jJ1^!=eIX[nWlHq~=\"><next><block type=\"i2c_init\" id=\"@4A?;:5v|I=GhZxbS5sS\"><field name=\"NAME\">0</field><field name=\"FREQ\">100000</field><value name=\"SCL\"><shadow type=\"math_number\" id=\"cDD;.0.AVYj3i%21RzY|\"><mutation max=\"Infinity\" min=\"-Infinity\" precision=\"0\"></mutation><field name=\"NUM\">26</field></shadow></value><value name=\"SDA\"><shadow type=\"math_number\" id=\"=J~lHaFh`%.jgL1TY_HM\"><mutation max=\"Infinity\" min=\"-Infinity\" precision=\"0\"></mutation><field name=\"NUM\">0</field></shadow></value><next><block type=\"hat_joyc_init\" id=\"IKuSw?L%D=e[o_-J#_o?\"><field name=\"NAME\">hat_joyc_0</field><value name=\"ADDR\"><shadow type=\"hat_joyc_addr_option\" id=\"v!b~6/?rvy2O/oD[{S#z\"><field name=\"VALUE\">0x38</field></shadow></value><next><block type=\"variables_set\" id=\"+`Stb-!GGD8(?+28*Q.3\"><field name=\"VAR\" id=\"fSkDGsT_n~FcI=(rTm%M\">my_ip</field><value name=\"VALUE\"><block type=\"logic_null\" id=\"05Yrj,oglSsM0*L=@+ci\"></block></value><next><block type=\"wlan_sta_init\" id=\"G0N~s-Pj}@6-WOxL^F]T\"><next><block type=\"wlan_sta_connect\" id=\"3ZZpLH{@U@-DFUB{ay}|\"><value name=\"SSID\"><shadow type=\"text\" id=\"`Ew`lMm`TE18-!fKkcN2\"><field name=\"TEXT\">rover1</field></shadow></value><value name=\"PASSWORD\"><shadow type=\"text_password\" id=\"GaoTD_^u}N|tj4~;S6pR\"><mutation show=\"false\"></mutation><field name=\"TEXT\"></field></shadow></value><next><block type=\"wlan_sta_set_active\" id=\"x^%~%4upn~3Dgi}8j^UL\"><field name=\"ACTIVE\">True</field><next><block type=\"controls_whileUntil\" id=\"h?qZh=Ph4HL_8.J?@)3.\"><field name=\"MODE\">WHILE</field><value name=\"BOOL\"><block type=\"logic_compare\" id=\"0SXCbW9*2q(4vc2lHSxg\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"wlan_sta_is_connected\" id=\"lWIdP7J?rVZc?{._C%qA\"></block></value><value name=\"B\"><block type=\"logic_boolean\" id=\"dpf!b7/,}YRyJJW`72gk\"><field name=\"BOOL\">FALSE</field></block></value></block></value><statement name=\"DO\"><block type=\"time_sleep_millisecond\" id=\"Z;hlDew+X#6_w6W~s~*`\"><value name=\"MS\"><shadow type=\"math_number\" id=\"?dt`+#R/8HD(TEoxByFy\"><mutation max=\"Infinity\" min=\"0\" precision=\"0\"></mutation><field name=\"NUM\">20</field></shadow></value></block></statement><next><block type=\"udp_client_start\" id=\"tYHd$|+Ura:$Mm%[Sl0n\"><value name=\"IP\"><shadow type=\"text\" id=\"ojI@i,6?ts(CYR]q%:I#\"><field name=\"TEXT\">192.168.4.1</field></shadow></value><value name=\"PORT\"><shadow type=\"math_number\" id=\"a8@i|$!Q(wT%U:XHLI9;\"><mutation max=\"Infinity\" min=\"-Infinity\" precision=\"0\"></mutation><field name=\"NUM\">8000</field></shadow></value><next><block type=\"variables_set\" id=\"*YKy4c8C@[h)!+|lQWe6\"><field name=\"VAR\" id=\"y@c*dgf.pn+tMe5wkY|6\">count</field><value name=\"VALUE\"><block type=\"math_number\" id=\"B+7ftY-s6jE}![IOw:ua\"><mutation max=\"Infinity\" min=\"-Infinity\" precision=\"0\"></mutation><field name=\"NUM\">0</field></block></value><next><block type=\"variables_set\" id=\"WxV+H|YUaMKbEYb%}4YZ\"><field name=\"VAR\" id=\"49+FBR=Gs,VrCO1c(?R8\">payload</field><value name=\"VALUE\"><block type=\"bytearray_create_empty\" id=\"3~2Qei7A6Y}z1:fBlyzV\"><value name=\"LENGTH\"><shadow type=\"math_number\" id=\"Qu{9?R7?3c;q7YGO??-l\"><mutation max=\"Infinity\" min=\"-Infinity\" precision=\"0\"></mutation><field name=\"NUM\">1</field></shadow></value></block></value><next><block type=\"variables_set\" id=\"Gen`GWdTvSMDhC=3-mU]\"><field name=\"VAR\" id=\"D=KR_ggv0mu-b1sniv!K\">controls</field><value name=\"VALUE\"><block type=\"bytearray_create_empty\" id=\"zD}2uiuLlw7?I]^))gI)\"><value name=\"LENGTH\"><shadow type=\"math_number\" id=\"kvr32t(*Kq]1;Y0}WIiN\"><mutation max=\"Infinity\" min=\"-Infinity\" precision=\"0\"></mutation><field name=\"NUM\">10</field></shadow></value></block></value><next><block type=\"bytearray_setIndex\" id=\"gw%ni6:a(_tkrtg+N[{j\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\" id=\".Z:MFeTyv`!Y-8bavmdU\"><field name=\"VAR\" id=\"D=KR_ggv0mu-b1sniv!K\">controls</field></block></value><value name=\"AT\"><block type=\"math_number\" id=\"YhajH*p{=Dc3|a4ms,J.\"><mutation max=\"Infinity\" min=\"-Infinity\" precision=\"0\"></mutation><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"math_number\" id=\":2wNCs30]%I0z(t)Pc`V\"><mutation max=\"Infinity\" min=\"-Infinity\" precision=\"0\"></mutation><field name=\"NUM\">0x05</field></block></value><next><block type=\"bytearray_setIndex\" id=\"?pZY}xc(je?Rr7$Vt3P=\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\" id=\"8?S5#YS!)y}vwQaKSnj)\"><field name=\"VAR\" id=\"D=KR_ggv0mu-b1sniv!K\">controls</field></block></value><value name=\"AT\"><block type=\"math_number\" id=\"r]PPqYfK)gyN[oP^_[H/\"><mutation max=\"Infinity\" min=\"-Infinity\" precision=\"0\"></mutation><field name=\"NUM\">2</field></block></value><value name=\"TO\"><block type=\"math_number\" id=\"@7,/~#_C1[$F6quO([-t\"><mutation max=\"Infinity\" min=\"-Infinity\" precision=\"0\"></mutation><field name=\"NUM\">0x07</field></block></value><next><block type=\"bytearray_setIndex\" id=\";wbfBG#~iV@%B8-@/:UE\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\" id=\"v!G+09L]pZ4aB.riBs5T\"><field name=\"VAR\" id=\"D=KR_ggv0mu-b1sniv!K\">controls</field></block></value><value name=\"AT\"><block type=\"math_number\" id=\"c`0?q2N+qN{qWX17I2-Y\"><mutation max=\"Infinity\" min=\"-Infinity\" precision=\"0\"></mutation><field name=\"NUM\">10</field></block></value><value name=\"TO\"><block type=\"math_number\" id=\"(.dVbJ0@(:*{$+mhm)3Q\"><mutation max=\"Infinity\" min=\"-Infinity\" precision=\"0\"></mutation><field name=\"NUM\">0x08</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></statement></block><block type=\"basic_on_loop\" id=\"loop_block\" deletable=\"false\" x=\"490\" y=\"210\"><mutation isUpdate=\"true\"></mutation><field name=\"UPDATEOP\">true</field><statement name=\"FUNC\"><block type=\"system_m5_update\" id=\"].T|ctdV4FK`46T-O)o`\"><next><block type=\"bytearray_setIndex\" id=\",p+SS)t7]}g0vdfN]4hn\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\" id=\"$=e4_O(]UMD@xC+)43`x\"><field name=\"VAR\" id=\"D=KR_ggv0mu-b1sniv!K\">controls</field></block></value><value name=\"AT\"><block type=\"math_number\" id=\"[Y9`4YyjP#GDD,^S_}AI\"><mutation max=\"Infinity\" min=\"-Infinity\" precision=\"0\"></mutation><field name=\"NUM\">3</field></block></value><value name=\"TO\"><block type=\"hat_joyc_get_button_status\" id=\"s!0tD5VGQpwR;@tmd$6O\"><field name=\"NAME\">hat_joyc_0</field><value name=\"CHANNEL\"><shadow type=\"hat_joyc_channel_option\" id=\"T`WNU|LZg}yFEmEe;;#d\"><field name=\"VALUE\">0</field></shadow></value></block></value><next><block type=\"bytearray_setIndex\" id=\"P7K;OV!K~oJ}EJ}IZ:7u\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\" id=\"}cO{5eQ/f1yOs+VF(yLd\"><field name=\"VAR\" id=\"D=KR_ggv0mu-b1sniv!K\">controls</field></block></value><value name=\"AT\"><block type=\"math_number\" id=\"Jy3VR#2aZBuGNEj+%@gH\"><mutation max=\"Infinity\" min=\"-Infinity\" precision=\"0\"></mutation><field name=\"NUM\">4</field></block></value><value name=\"TO\"><block type=\"hat_joyc_get_button_status\" id=\")CZiBAcdtIRs:cmY.0Y,\"><field name=\"NAME\">hat_joyc_0</field><value name=\"CHANNEL\"><shadow type=\"hat_joyc_channel_option\" id=\"sB{A~tn*OX1HtUj|[ovZ\"><field name=\"VALUE\">1</field></shadow></value></block></value><next><block type=\"bytearray_setIndex\" id=\"B*f@)4F~Y(R?YZ2[^+!6\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\" id=\"g+Avp|?(U)33x8o?[C0w\"><field name=\"VAR\" id=\"D=KR_ggv0mu-b1sniv!K\">controls</field></block></value><value name=\"AT\"><block type=\"math_number\" id=\"+7vK-|QtjF.3/9a$~laY\"><mutation max=\"Infinity\" min=\"-Infinity\" precision=\"0\"></mutation><field name=\"NUM\">5</field></block></value><value name=\"TO\"><block type=\"hat_joyc_get_x_raw\" id=\"W$#eM9|_H{+/(Y`y%2c=\"><field name=\"NAME\">hat_joyc_0</field><value name=\"CHANNEL\"><shadow type=\"hat_joyc_channel_option\" id=\"0Ufoc3lgZx~|)c1U5/5P\"><field name=\"VALUE\">0</field></shadow></value></block></value><next><block type=\"bytearray_setIndex\" id=\"6/EH*a?|eEiveM*#-@0v\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\" id=\"C2x|gExNyAmy@L4OU%p|\"><field name=\"VAR\" id=\"D=KR_ggv0mu-b1sniv!K\">controls</field></block></value><value name=\"AT\"><block type=\"math_number\" id=\"fIFPm8Z`KsvEQtRb-cqF\"><mutation max=\"Infinity\" min=\"-Infinity\" precision=\"0\"></mutation><field name=\"NUM\">6</field></block></value><value name=\"TO\"><block type=\"hat_joyc_get_y_raw\" id=\"b*wOEIj,${epWn6,q|Yj\"><field name=\"NAME\">hat_joyc_0</field><value name=\"CHANNEL\"><shadow type=\"hat_joyc_channel_option\" id=\"yOn,i)c{e-,6YHLk5l6^\"><field name=\"VALUE\">0</field></shadow></value></block></value><next><block type=\"bytearray_setIndex\" id=\"dR9AE|=r}GQhBE-P{$`|\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\" id=\"o#OKjC91/99oE.OD=f!]\"><field name=\"VAR\" id=\"D=KR_ggv0mu-b1sniv!K\">controls</field></block></value><value name=\"AT\"><block type=\"math_number\" id=\"Dyb6l^1h}*_RyQ2UA_As\"><mutation max=\"Infinity\" min=\"-Infinity\" precision=\"0\"></mutation><field name=\"NUM\">7</field></block></value><value name=\"TO\"><block type=\"hat_joyc_get_x_raw\" id=\"TQu[6p?Mm]RH0kCft^wE\"><field name=\"NAME\">hat_joyc_0</field><value name=\"CHANNEL\"><shadow type=\"hat_joyc_channel_option\" id=\"]q=3zEWB|uk38!be%ZG=\"><field name=\"VALUE\">1</field></shadow></value></block></value><next><block type=\"bytearray_setIndex\" id=\"iy0b=tB$PguQ#f6v0HQ-\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\" id=\"%quK/izIFZ%A-D.cm[U/\"><field name=\"VAR\" id=\"D=KR_ggv0mu-b1sniv!K\">controls</field></block></value><value name=\"AT\"><block type=\"math_number\" id=\"e;*G08Bg8mdeZ//.^.=L\"><mutation max=\"Infinity\" min=\"-Infinity\" precision=\"0\"></mutation><field name=\"NUM\">8</field></block></value><value name=\"TO\"><block type=\"hat_joyc_get_y_raw\" id=\"rYmJlR?8z_66k=Z`+Rdh\"><field name=\"NAME\">hat_joyc_0</field><value name=\"CHANNEL\"><shadow type=\"hat_joyc_channel_option\" id=\"3eyl#xoiY0p=vX@rI=]M\"><field name=\"VALUE\">1</field></shadow></value></block></value><next><block type=\"udp_client_send\" id=\"ioR{|w~i.Z/k|8T9JZ8,\"><value name=\"DATA\"><shadow type=\"text\" id=\"IV0mC!~8Y%0$UndqhYGB\"><field name=\"TEXT\"></field></shadow><block type=\"variables_get\" id=\"r}QqPtI=eH0W=~-C80SA\"><field name=\"VAR\" id=\"D=KR_ggv0mu-b1sniv!K\">controls</field></block></value><next><block type=\"time_sleep_millisecond\" id=\"McikMp1vc[LA|p:K2MEd\"><value name=\"MS\"><shadow type=\"math_number\" id=\"Cil#`3CS~L*YRPG7EnN+\"><mutation max=\"Infinity\" min=\"0\" precision=\"0\"></mutation><field name=\"NUM\">2000</field></shadow></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></statement></block>",
+  "screen": [
+    {
+      "simulationName": "Built-in",
+      "type": "builtin",
+      "width": 135,
+      "height": 240,
+      "scale": 0.67,
+      "screenName": "",
+      "blockId": "",
+      "screenColorType": 0,
+      "rotation": 0,
+      "id": "builtin",
+      "createTime": 1769964759050
+    }
+  ],
+  "logicWhenNum": 0,
+  "customList": []
+}
